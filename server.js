@@ -10,29 +10,33 @@ http.listen(port, function(){
     console.log(`listening on port ${port}.`);
 })
 
+//serve the index.html
 app.get("/", function(req, res){
     res.sendFile(__dirname + "/index.html");
 });
 
-//serve the client js
+//serve the client.js
 app.get('/client.js', function(req, res) {
     res.sendFile(__dirname + "/" + "client.js");
 });
 
+
+//new connections
 io.on("connection", function(socket){
 
     console.log("Connection made.");
 
+    //when a user tries to log in
     socket.on("log_in_attempt", function(username, password){
-        console.log(`Username = ${username} Password = ${password}`);
 
+        //check database for that username
         pool.query("SELECT * FROM users WHERE username = $1", [username], (err, res) => {
             console.log(err ? err.stack : res.rows);
+
+            //check if the user entered the correct creds
             if(res.rows !== [] && res.rows[0].password === password){
-                console.log("valid login.");
                 socket.emit("log_in_response", true, res.rows[0].id);
             }else{
-                console.log("not a valid login.");
                 socket.emit("log_in_response", false, -1);
             }
         })
