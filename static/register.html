@@ -1,21 +1,29 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Log In</title>
+        <title>Register</title>
         <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
         <script src="/socket.io/socket.io.js"></script>
-        <script src="login.js"></script>
+        <script src="register.html"></script>
+        <link rel="icon" type="image/png" href="images/html-coding.png"/>
     </head>
     <body>
-        <h1>Welcome.</h1>
+        <h1>Registration.</h1>
         <form action="">
             <label for="username">Username: </label>
             <input type="text" id="username">
+            <br>
+
             <label for="password">Password: </label>
             <input type="password" id="password">
             <br>
-            <button id="submit">Log In</button>
+
+            <label for="password2">Re-enter Password: </label>
+            <input type="password" id="password2">
+            <br>
+
+            <button id="submit">Register</button>
         </form>
-        <div id="log_in_response"></div>
+        <div id="registration_response"></div>
     </body>
 </html>
