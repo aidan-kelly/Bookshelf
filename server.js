@@ -12,12 +12,12 @@ http.listen(port, function(){
 
 //serve the index.html
 app.get("/", function(req, res){
-    res.sendFile(__dirname + "/index.html");
+    res.sendFile(__dirname + "/login.html");
 });
 
 //serve the client.js
-app.get('/client.js', function(req, res) {
-    res.sendFile(__dirname + "/" + "client.js");
+app.get('/login.js', function(req, res) {
+    res.sendFile(__dirname + "/" + "login.js");
 });
 
 
