@@ -5,11 +5,12 @@ $(function(){
     $('form').submit(function(e){
         e.preventDefault();
         //send over the creds
-        if($("#password").val() !== $("#password2")){
+        if($("#password").val() !== $("#password2").val()){
             $("#registration_response").text("Please ensure that the passwords match.");
         }else if($("#password").val() === "" || $("#password2").val() === "" || $("#username").val() === ""){
             $("#registration_response").text("Please fill out all the input fields.");
         }else{
+            $("#registration_response").text("");
             socket.emit('registration_attempt', $('#username').val(), $('#password').val());
         }
         return false;

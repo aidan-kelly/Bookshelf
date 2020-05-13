@@ -1,22 +1,39 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Log In</title>
+        <title>Bookshelf | Log In</title>
         <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
         <script src="/socket.io/socket.io.js"></script>
         <script src="login.js"></script>
-        <link rel="icon" type="image/png" href="images/html-coding.png"/>
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+        <link rel="icon" type="images/png" href="images/html-coding.png"/>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
     </head>
-    <body>
-        <h1>Welcome.</h1>
-        <form action="">
-            <label for="username">Username: </label>
-            <input type="text" id="username">
-            <label for="password">Password: </label>
-            <input type="password" id="password">
-            <br>
-            <button id="submit">Log In</button>
-        </form>
-        <div id="log_in_response"></div>
+    <body class="homepage">
+
+        <nav>
+            <ul class="nav-links">
+                <li class="nav-items"><a href="index.html">Home</a></li>
+                <li class="seperator">|</li>
+                <li class="nav-items">Login</li>
+                <li class="seperator">|</li>
+                <li class="nav-items"><a href="register.html">Register</a></li>
+            </ul>
+        </nav>
+
+        <div id="login_block">
+            <h1>Welcome.</h1>
+            <form action="">
+                <label for="username">Username: </label>
+                <input type="text" id="username">
+                <br>
+                <label for="password">Password: </label>
+                <input type="password" id="password">
+                <br>
+                <button id="submit">Log In</button>
+            </form>
+            <div id="log_in_response"></div>
+        </div>
+        
     </body>
 </html>

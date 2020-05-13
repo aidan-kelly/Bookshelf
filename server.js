@@ -29,17 +29,33 @@ io.on("connection", function(socket){
 
         //check database for that username
         pool.query("SELECT * FROM users WHERE username = $1", [username], (err, res) => {
-            console.log(err ? err.stack : res.rows);
 
             //check if the user entered the correct creds
-            if(res.rows.toString() !== ""){
+            if(res.rows.length !== 0){
                 if(res.rows[0].password === password){
                     socket.emit("log_in_response", true, res.rows[0].id);
+                }else{
+                    socket.emit("log_in_response", false, -1);
                 }
             }else{
                 socket.emit("log_in_response", false, -1);
             }
         })
+    });
+
+    socket.on("registration_attempt", function(username, password){
+        
+        //attempt to add to db
+        pool.query("INSERT INTO users (username, password) VALUES ($1, $2)", [username, password], (err, res) => {
+            
+            if(err){
+                socket.emit("registration_response", false, -1);
+            }else{
+                pool.query("SELECT * FROM users WHERE username = $1", [username], (err, res) => {
+                    socket.emit("registration_response", true, res.rows[0].id);
+                });
+            }
+        });
     });
 
 });

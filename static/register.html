@@ -1,29 +1,48 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Register</title>
+        <title>Bookshelf | Register</title>
         <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
         <script src="/socket.io/socket.io.js"></script>
-        <script src="register.html"></script>
-        <link rel="icon" type="image/png" href="images/html-coding.png"/>
+        <script src="register.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+        <link rel="icon" type="images/png" href="images/html-coding.png"/>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
     </head>
-    <body>
-        <h1>Registration.</h1>
-        <form action="">
-            <label for="username">Username: </label>
-            <input type="text" id="username">
-            <br>
+    <body class="homepage">
 
-            <label for="password">Password: </label>
-            <input type="password" id="password">
-            <br>
+        <nav>
+            <ul class="nav-links">
+                <li class="nav-items"><a href="index.html">Home</a></li>
+                <li class="seperator">|</li>
+                <li class="nav-items"><a href="login.html">Login</a></li>
+                <li class="seperator">|</li>
+                <li class="nav-items">Register</li>
+            </ul>
+        </nav>
 
-            <label for="password2">Re-enter Password: </label>
-            <input type="password" id="password2">
-            <br>
+        <div id="registration_block">
 
-            <button id="submit">Register</button>
-        </form>
-        <div id="registration_response"></div>
+            <h1>Registration.</h1>
+            <form action="">
+                <label for="username">Username: </label>
+                <input type="text" id="username">
+                <br>
+
+                <label for="password">Password: </label>
+                <input type="password" id="password">
+                <br>
+
+                <label for="password2">Re-enter Password: </label>
+                <input type="password" id="password2">
+                <br>
+
+                <button id="submit">Register</button>
+            </form>
+            <div id="registration_response"></div>
+
+        </div>
+
+        
     </body>
 </html>
