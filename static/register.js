@@ -21,6 +21,9 @@ $(function(){
         //our creds were correct
         if(response === true){
             $("#registration_response").text("Valid Registration!!!");
+            document.cookie = `uid=${uid}`;
+            //then redirect to the your_books.html file
+            window.location.replace("http://localhost:3000/your_books.html");
         //our creds were  incorrect
         }else{
             $("#registration_response").text("Sorry, that username is already in use.");

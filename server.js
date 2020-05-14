@@ -58,4 +58,14 @@ io.on("connection", function(socket){
         });
     });
 
+    socket.on("user_book_request", function(uid){
+        pool.query("SELECT * FROM BOOKS WHERE owner_id = $1", [uid], (err, res) => {
+            if(err){
+                console.log("FUCK");
+            }else{
+                socket.emit("user_book_response", res.rows);
+            }
+        });
+    })
+
 });

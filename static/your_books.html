@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bookshelf | Your Books</title>
+        <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="your_books.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+        <link rel="icon" type="images/png" href="images/html-coding.png"/>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+    </head>
+    <body>
+
+        <nav>
+            <ul class="nav-links">
+                <li class="nav-items">Your Books</li>
+                <li class="seperator">|</li>
+                <li class="nav-items"><a href="">Add Books</a></li>
+                <li class="seperator">|</li>
+                <li class="nav-items"><a href="">Friends</a></li>
+            </ul>
+        </nav>
+
+        <h1>Your Bookshelf</h1>
+        <table id="your_books_table">
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Status</th>
+            </tr>
+        </table>
+    </body>
+</html>
